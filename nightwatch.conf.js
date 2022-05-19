@@ -36,9 +36,9 @@ module.exports = {
       // https://www.browserstack.com/automate/capabilities?tag=selenium-4
       desiredCapabilities: {
         'bstack:options' : {
-          userName: '${BROWSERSTACK_USERNAME}',
-          accessKey: '${BROWSERSTACK_ACCESS_KEY}',
-          buildName: 'browserstack-build-1'
+          userName: process.env.BROWSERSTACK_USERNAME,
+          accessKey: process.env.BROWSERSTACK_ACCESS_KEY,
+          buildName: process.env.BROWSERSTACK_BUILD_NAME
         },
         browserName: 'chrome',
         browserVersion: 'latest'
