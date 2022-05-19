@@ -1,13 +1,4 @@
 # Node.js
-- task: BrowserStackConfig@0
-  inputs:
-- task: BrowserStackResults@1
-  inputs:
-    browserstackProduct: 'automate'
-    BrowserStackServiceEndPoint: 'BrowserStack Demo'
-# Build a general Node.js project with npm.
-# Add steps that analyze code, save build artifacts, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
 trigger:
 - master
@@ -16,6 +7,9 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
+- task: BrowserStackConfig@0
+  inputs:
+    BrowserStackServiceEndPoint: 'BrowserStack Demo'
 - task: NodeTool@0
   inputs:
     versionSpec: '10.x'
@@ -25,3 +19,6 @@ steps:
     npm install
     npm run build
   displayName: 'npm install and build'
+- task: BrowserStackResults@1
+  inputs:
+    browserstackProduct: 'automate'
