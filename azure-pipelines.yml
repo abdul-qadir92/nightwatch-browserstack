@@ -17,8 +17,8 @@ steps:
 
 - script: |
     npm install
-    npm run build
-  displayName: 'npm install and build'
+    npm run parallel
+  displayName: 'npm install and parallel'
 - task: BrowserStackResults@1
   inputs:
     browserstackProduct: 'automate'
